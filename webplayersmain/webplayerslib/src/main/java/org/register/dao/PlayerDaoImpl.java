@@ -18,6 +18,11 @@ public class PlayerDaoImpl implements PlayerDao{
 	@Autowired
 	PlayerRepository playerRepository;
 
+
+	public EntityPlayer create(EntityPlayer ep) {
+		return playerRepository.save(ep);
+	}
+	
 	public List<EntityPlayer> findAll() {
 		return playerRepository.findAll();
 	}
@@ -39,5 +44,6 @@ public class PlayerDaoImpl implements PlayerDao{
 		playerRepository.delete(ep);
 		return ep;
 	}
+
 
 }

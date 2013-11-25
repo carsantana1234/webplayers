@@ -10,6 +10,8 @@ import org.register.model.EntityPlayer;
  *
  */
 public interface PlayerDao {
+	
+	public EntityPlayer create(EntityPlayer ep); 
 
 	public List<EntityPlayer> findAll();
 

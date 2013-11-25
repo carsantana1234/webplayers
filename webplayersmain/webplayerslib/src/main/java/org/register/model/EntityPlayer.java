@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 
 
@@ -34,7 +35,7 @@ public class EntityPlayer {
 	@Column(name="id_visible")
 	private Integer state;
 	
-	//@Lob
+	@Lob
 	@Column(name="photo")
 	private Blob photo;
 	
