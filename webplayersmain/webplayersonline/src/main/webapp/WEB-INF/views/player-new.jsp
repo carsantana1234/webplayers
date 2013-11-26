@@ -81,26 +81,7 @@ div {
 </head>
 <body>
 
-	<div>
-		<springformul:form method="POST" commandName="registro" action="${pageContext.request.contextPath}/register/create">
-			<springformul:input path="name" />
-			<springformul:errors path="name" cssStyle="color:red" />
-			<springformul:input path="apellido" />
-			<springformul:errors path="apellido" cssStyle="color:red" />
-			<springformul:input path="edad"/>
-			<springformul:errors path="edad" cssStyle="color:red" />
-			<springformul:select path="idVisible">
-				<springformul:option value="" label="--Please Select" />
-				<springformul:options items="${listaVisible}" itemValue="id"
-					itemLabel="estado" />
-			</springformul:select>
-			<springformul:errors path="idVisible" cssStyle="color:red" />
-			<%-- <c:forEach var="listaV" items="${listaVisible}"> </c:forEach>--%>
-			<input type="submit" name="Registrarse" value="Registrase">
-
-
-		</springformul:form>
-	</div>
+	
 	
 </body>
 </html>
