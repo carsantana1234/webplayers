@@ -1,10 +1,10 @@
-package org.register.dao;
+package org.webplayerslib.dao;
 
 import java.util.List;
 
-import org.register.model.EntityPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.webplayerslib.model.EntityPlayer;
 import org.webplayerslib.repository.PlayerRepository;
 
 /**

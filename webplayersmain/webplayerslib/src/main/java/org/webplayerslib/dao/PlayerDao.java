@@ -1,8 +1,8 @@
-package org.register.dao;
+package org.webplayerslib.dao;
 
 import java.util.List;
 
-import org.register.model.EntityPlayer;
+import org.webplayerslib.model.EntityPlayer;
 
 /**
  * Interface for DAO operations

@@ -1,8 +1,8 @@
-package org.register.service;
+package org.webplayerslib.service;
 
 import java.util.List;
 
-import org.register.model.EntityPlayer;
+import org.webplayerslib.model.EntityPlayer;
 
 public interface PlayerService {
 	

@@ -1,4 +1,4 @@
-package org.register.model;
+package org.webplayerslib.model;
 
 import java.sql.Blob;
 

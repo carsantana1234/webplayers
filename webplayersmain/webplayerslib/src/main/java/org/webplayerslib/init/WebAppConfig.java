@@ -6,6 +6,7 @@ import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.webplayerslib.aspect.LoggingAspect;
 
 import com.jolbox.bonecp.BoneCPDataSource;
 
@@ -34,6 +36,7 @@ import javax.sql.DataSource;
 @ComponentScan("org.register")
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories("org.register.repository")
+@EnableAspectJAutoProxy
 public class WebAppConfig extends WebMvcConfigurerAdapter{
 
 	private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
@@ -141,6 +144,11 @@ getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
     	return commonsMultipartResolver;
     }
     
+    @Bean
+    public LoggingAspect loggingAspect(){
+    	
+    	return new LoggingAspect();
+    }
     
 
 }

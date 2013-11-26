@@ -1,15 +1,15 @@
-package org.register.service;
+package org.webplayerslib.service;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.sql.Blob;
 import java.util.List;
 
-import org.register.dao.PlayerDao;
-import org.register.model.EntityPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.webplayerslib.dao.PlayerDao;
+import org.webplayerslib.model.EntityPlayer;
 
 /**
  * Layer for use from top layers
