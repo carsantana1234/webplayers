@@ -33,12 +33,12 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan("org.register")
+@ComponentScan("org.webplayerslib")
 @PropertySource("classpath:application.properties")
-@EnableJpaRepositories("org.register.repository")
+@EnableJpaRepositories("org.webplayerslib.repository")
 @EnableAspectJAutoProxy
 public class WebAppConfig extends WebMvcConfigurerAdapter{
-
+	
 	private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
 	private static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
 	private static final String PROPERTY_NAME_DATABASE_URL = "db.url";
@@ -53,6 +53,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter{
 
 	@Bean
 	public DataSource dataSource() {
+		
 		/*DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
 		dataSource.setDriverClassName(env.getRequiredProperty(PROPERTY_NAME_DATABASE_DRIVER));
@@ -149,6 +150,5 @@ getRequiredProperty(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN));
     	
     	return new LoggingAspect();
     }
-    
 
 }
