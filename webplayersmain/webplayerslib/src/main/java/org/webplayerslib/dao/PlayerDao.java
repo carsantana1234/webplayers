@@ -18,5 +18,7 @@ public interface PlayerDao {
 	public EntityPlayer update(EntityPlayer ep);
 
 	public EntityPlayer delete(int id);
+	
+	public EntityPlayer findOne(Integer id);
 
 }

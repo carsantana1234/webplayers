@@ -14,4 +14,6 @@ public interface PlayerService {
 
 	public EntityPlayer delete(int id);
 	
+	public EntityPlayer findOne(Integer id);
+	
 }

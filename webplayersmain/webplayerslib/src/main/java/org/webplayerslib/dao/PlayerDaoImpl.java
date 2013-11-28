@@ -45,5 +45,11 @@ public class PlayerDaoImpl implements PlayerDao{
 		return ep;
 	}
 
+	public EntityPlayer findOne(Integer id) {
+		return playerRepository.findOne(id);
+	}
+	
+	
+
 
 }

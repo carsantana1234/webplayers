@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://www.springframework.org/tags/form"
-	prefix="springformul"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="springformul"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -29,7 +28,7 @@ div {
 </STYLE>
 
 <script type="text/javascript">
- 
+ <%--
 	$(function() {
 		$('#registro').validate({
 			rules : {
@@ -76,11 +75,32 @@ div {
 			}
 		});
 	});
+	--%>
 </script>
 
 </head>
 <body>
 
+<div>
+		<springformul:form method="POST" commandName="entityPlayer" enctype="multipart/form-data" action="${pageContext.request.contextPath}/players/create">
+			<springformul:input path="name" />
+			<springformul:errors path="name" cssStyle="color:red" />
+			<springformul:input path="surName" />
+			<springformul:errors path="surName" cssStyle="color:red" />
+			<springformul:input path="age"/>
+			<springformul:errors path="age" cssStyle="color:red" />
+			<springformul:input type="file" path="photoFile" />
+			<!--<springformul:select path="state">
+				<springformul:option value="" label="--Please Select" />
+				<springformul:options items="${listaVisible}" itemValue="id"
+					itemLabel="estado" />
+			</springformul:select> 
+			<springformul:errors path="state" cssStyle="color:red" /> -->
+			<%-- <c:forEach var="listaV" items="${listaVisible}"> </c:forEach>--%>
+			<input type="submit" name="Create" value="Create">
+
+		</springformul:form>
+	</div>
 	
 	
 </body>

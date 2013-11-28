@@ -1,5 +1,6 @@
 package org.webplayerslib.model;
 
+import java.io.Serializable;
 import java.sql.Blob;
 
 import javax.persistence.Column;
@@ -7,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 
 
@@ -16,7 +20,9 @@ import javax.persistence.Lob;
  *
  */
 @Entity(name="player")
-public class EntityPlayer {
+public class EntityPlayer implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
@@ -34,13 +40,35 @@ public class EntityPlayer {
 	
 	@Column(name="id_visible")
 	private Integer state;
-	
+
 	@Lob
 	@Column(name="photo")
 	private Blob photo;
 	
 	@Column(name="photo_name")
 	private String photoName;
+	
+	@Column(name="photo_base64")
+	private byte[] photoBase64;
+	
+	@Transient
+	private CommonsMultipartFile photoFile;
+	
+	@Transient
+	private String photoBase64String;
+	
+
+	public String getPhotoBase64String() {
+		return new String (this.photoBase64);
+	}
+
+	public byte[]  getPhotoBase64() {
+		return photoBase64;
+	}
+
+	public void setPhotoBase64(byte[] photoBase64) {
+		this.photoBase64 = photoBase64;
+	}
 
 	public Integer getId() {
 		return id;
@@ -82,13 +110,7 @@ public class EntityPlayer {
 		this.state = state;
 	}
 
-	public Blob getPhoto() {
-		return photo;
-	}
 
-	public void setPhoto(Blob photo) {
-		this.photo = photo;
-	}
 
 	public String getPhotoName() {
 		return photoName;
@@ -96,6 +118,22 @@ public class EntityPlayer {
 
 	public void setPhotoName(String photoName) {
 		this.photoName = photoName;
+	}
+
+	public CommonsMultipartFile getPhotoFile() {
+		return photoFile;
+	}
+
+	public void setPhotoFile(CommonsMultipartFile photoFile) {
+		this.photoFile = photoFile;
+	}
+
+	public Blob getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(Blob photo) {
+		this.photo = photo;
 	}
 	
 	

@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 @Aspect
 public class LoggingAspect {
 	
@@ -53,17 +53,21 @@ public class LoggingAspect {
 		 
 		    }*/
 	
-	@Around("execution(* org.webplayerslib.controller.PlayerController.newPlayerPage(..))")
-	public void logAspect(ProceedingJoinPoint joinPoint) throws Throwable {
+	//@Around("execution(* org.webplayerslib.controller.PlayerController..*.*(..))")
+	//execution(* com.xyz.service.AccountService.*(..))
+	
+	@Around("execution(* org.webplayerslib.controller.PlayerController.newPlayerPage(..)) ")
+	public Object logAspect(ProceedingJoinPoint joinPoint) throws Throwable {
 		
 		log.info("logAspect is running ");
 		log.info("Method name " + joinPoint.getSignature().getName() );
 		log.info("Argumentos " + Arrays.toString(joinPoint.getArgs()) );
 		log.info("Around antes del running");
-		joinPoint.proceed();
+		Object object = joinPoint.proceed();
 		log.info("Around despues del running");
 		log.info("===================================================");
 		
+		return object;
 	}
 
 }
