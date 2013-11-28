@@ -83,13 +83,21 @@ div {
 
 <div>
 		<springformul:form method="POST" commandName="entityPlayer" enctype="multipart/form-data" action="${pageContext.request.contextPath}/players/create">
+			<spring:message code="form.create.field.name"/> 
 			<springformul:input path="name" />
-			<springformul:errors path="name" cssStyle="color:red" />
+			<springformul:errors path="name" cssStyle="color:red" /> 
+			<br/>
+			<spring:message code="form.create.field.surname"/> 
 			<springformul:input path="surName" />
-			<springformul:errors path="surName" cssStyle="color:red" />
+			<springformul:errors path="surName" cssStyle="color:red" /> 
+			<br/>
+			<spring:message code="form.create.field.age"/> 
 			<springformul:input path="age"/>
-			<springformul:errors path="age" cssStyle="color:red" />
-			<springformul:input type="file" path="photoFile" />
+			<springformul:errors path="age" cssStyle="color:red" /> 
+			<br/>
+			<spring:message code="form.create.field.photo"/> 
+			<springformul:input type="file" path="photoFile" /> 
+			<br/>
 			<!--<springformul:select path="state">
 				<springformul:option value="" label="--Please Select" />
 				<springformul:options items="${listaVisible}" itemValue="id"
@@ -97,7 +105,7 @@ div {
 			</springformul:select> 
 			<springformul:errors path="state" cssStyle="color:red" /> -->
 			<%-- <c:forEach var="listaV" items="${listaVisible}"> </c:forEach>--%>
-			<input type="submit" name="Create" value="Create">
+			<input type="submit" value='<spring:message code="form.create.field.create"/>'> 
 
 		</springformul:form>
 	</div>
