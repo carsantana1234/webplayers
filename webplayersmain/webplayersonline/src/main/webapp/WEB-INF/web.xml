@@ -5,6 +5,19 @@
 	id="RegistroWeb" version="3.0">
 	<display-name>Archetype Created Web Application</display-name>
 	
+
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+	
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+	
 	 <!-- Configure ContextLoaderListener to use AnnotationConfigWebApplicationContext
        instead of the default XmlWebApplicationContext -->
   <context-param>
@@ -19,7 +32,9 @@
        specified for component-scanning -->
   <context-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>org.webplayerslib.init.WebAppConfig</param-value>
+      <param-value>
+      	org.webplayerslib.init.WebAppConfig
+      </param-value>
   </context-param>
 
   <!-- Bootstrap the root application context as usual using ContextLoaderListener -->

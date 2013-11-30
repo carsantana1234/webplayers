@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.apache.commons.codec.binary.Base64;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.webplayerslib.model.EntityPlayer;
@@ -34,20 +32,6 @@ import org.webplayerslib.service.PlayerService;
 public class PlayerController {
 
 	static Logger log = LoggerFactory.getLogger(PlayerController.class);
-	
-	public static void main(String ... arg){
-	 String mierda = "super mierda";
-	 
-	 
-		
-		byte [] ver = Base64.encodeBase64(mierda.getBytes());
-		
-		
-		System.out.println(  new String(ver));
-		
-		
-		//BASE64Decoder
-	}
 	
 	@Autowired
 	PlayerService playerService;

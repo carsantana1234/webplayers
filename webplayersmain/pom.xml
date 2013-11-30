@@ -13,6 +13,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <spring.version>3.2.1.RELEASE</spring.version>
+    <!--  <spring.security.version>3.0.2.RELEASE</spring.security.version>--> 
+    <spring.security.version>3.1.4.RELEASE</spring.security.version>
+    
   </properties>
   
 
@@ -186,7 +189,51 @@ If you are using this library directly in Hibernate (i.e. without a DataSource, 
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>1.4.2.RELEASE</version>
-		</dependency>                        
+		</dependency>        
+		
+
+
+<!-- SPRING  SECURITY -->		
+		
+<dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${spring.security.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${spring.security.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-ldap</artifactId>
+      <version>${spring.security.version}</version>
+    </dependency>
+  <dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-openid</artifactId>
+    <version>${spring.security.version}</version>
+    <scope>compile</scope>
+  </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-taglibs</artifactId>
+      <version>${spring.security.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${spring.security.version}</version>
+</dependency>
+
+		                
 	
   </dependencies>
   <modules>

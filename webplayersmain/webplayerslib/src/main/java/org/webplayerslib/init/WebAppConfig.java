@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
@@ -36,6 +37,7 @@ import javax.sql.DataSource;
 @ComponentScan("org.webplayerslib")
 @PropertySource("classpath:application.properties")
 @EnableJpaRepositories("org.webplayerslib.repository")
+@ImportResource({"/WEB-INF/application-security.xml"})
 @EnableAspectJAutoProxy
 public class WebAppConfig extends WebMvcConfigurerAdapter{
 	
