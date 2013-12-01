@@ -8,14 +8,22 @@ import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.sql.rowset.serial.SerialBlob;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hibernate.hql.internal.ast.DetailedSemanticException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -73,6 +81,23 @@ public class PlayerController {
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
 	public ModelAndView findAll(){
+		
+		/*
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		Object ss = SecurityContextHolder.getContext().getAuthentication();
+		
+		WebAuthenticationDetails on = (WebAuthenticationDetails) ((Authentication) ss).getDetails();
+		
+		 String username =null;
+		
+		if (principal instanceof UserDetails) {
+			UserDetails userDetails = ((UserDetails)principal);
+			username = userDetails.getUsername();
+			
+		} else {
+		  username = principal.toString();
+		}*/
 		
 		ModelAndView mav = new ModelAndView("player-list");	
 		mav.addObject("playerslist", playerService.findAll() );
